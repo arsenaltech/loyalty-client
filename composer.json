@@ -1,0 +1,24 @@
+{
+    "name": "arsenaltech/loyalty-client",
+    "description": "Loyalty API PHP.",
+    "keywords": ["loyalty", "rewards", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shabbir Bharmal",
+            "email": "shabbir@arsenaltech.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+		"php": ">=7.1"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arsenaltech\\Loyalty\\": "src/"
+        }
+    }
+}
