@@ -20,7 +20,7 @@ trait Delete
         self::_validateParams($params);
 
         $url = $this->instanceUrl();
-        list($response, $opts) = $this->_request('delete', $url, $params, $opts);
+        list($response, $opts) = $this->_request('delete', $url, $params);
         $this->refreshFrom($response, $opts);
         return $this;
     }
