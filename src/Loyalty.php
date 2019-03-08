@@ -18,7 +18,7 @@ class Loyalty
     public static $clientId;
 
     // @var string The base URL for the Stripe API.
-    public static $apiBase = 'http://loyalty.test';
+    public static $apiBase = 'http://loyalty.test/api/';
 
     /**
      * @return string The API key used for requests.

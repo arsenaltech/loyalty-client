@@ -9,8 +9,12 @@
 namespace Arsenaltech\Loyalty;
 
 
-class ApiResource
+use Arsenaltech\Loyalty\ApiOperations\Request;
+
+class ApiResource extends LoyaltyObject
 {
+    use Request;
+    protected $_lastResponse;
     /**
      * @return string The base URL for the given class.
      */
@@ -27,7 +31,25 @@ class ApiResource
         // Replace dots with slashes for namespaced resources, e.g. if the object's name is
         // "foo.bar", then its URL will be "/v1/foo/bars".
         $base = str_replace('.', '/', static::OBJECT_NAME);
-        return "/${base}s";
+        return "/api/${base}s";
+    }
+
+    /**
+     * @return ApiResource The refreshed resource.
+     */
+    public function refresh()
+    {
+        $requestor = new ApiRequestor();
+        $url = $this->instanceUrl();
+
+        $response = $requestor->request(
+            'get',
+            $url,
+            $this->_retrieveOptions
+        );
+        $this->setLastResponse($response);
+        $this->refreshFrom($response['data'], $this->_opts);
+        return $this;
     }
 
     /**
@@ -54,4 +76,5 @@ class ApiResource
     {
         return static::resourceUrl($this['id']);
     }
+
 }
