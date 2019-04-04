@@ -38,7 +38,7 @@ trait Request
     {
         $resp = static::_staticRequest($method, $url, $params);
         $this->setLastResponse($resp);
-        return $resp->json;
+        return $resp['data'];
     }
 
     /**

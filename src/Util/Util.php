@@ -68,7 +68,10 @@ abstract class Util
         $types = [
             // data structures
             \Arsenaltech\Loyalty\Customer::OBJECT_NAME => '\\Arsenaltech\Loyalty\Customer',
-            \Arsenaltech\Loyalty\Order::OBJECT_NAME => '\\Arsenaltech\Loyalty\Order'
+            \Arsenaltech\Loyalty\Order::OBJECT_NAME => '\\Arsenaltech\Loyalty\Order',
+            \Arsenaltech\Loyalty\Tier::OBJECT_NAME => '\\Arsenaltech\Loyalty\Tier',
+            \Arsenaltech\Loyalty\Reward::OBJECT_NAME => '\\Arsenaltech\Loyalty\Reward',
+            \Arsenaltech\Loyalty\CustomerPointsHistory::OBJECT_NAME => '\\Arsenaltech\Loyalty\CustomerPointsHistory'
         ];
         if (self::isList($resp)) {
             $mapped = [];
