@@ -25,7 +25,7 @@ trait All
         $url = static::classUrl();
 
         $response = static::_staticRequest('get', $url, $params);
-        $objs = Util::convertToStripeObject($response['data']['data'], static::OBJECT_NAME);
+        $objs = Util::convertToStripeObject($response['data'], static::OBJECT_NAME);
         if(!is_array($objs)) {
             $message = "Expected array";
             throw new ApiError($message);

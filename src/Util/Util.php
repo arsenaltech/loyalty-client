@@ -71,7 +71,9 @@ abstract class Util
             \Arsenaltech\Loyalty\Order::OBJECT_NAME => '\\Arsenaltech\Loyalty\Order',
             \Arsenaltech\Loyalty\Tier::OBJECT_NAME => '\\Arsenaltech\Loyalty\Tier',
             \Arsenaltech\Loyalty\Reward::OBJECT_NAME => '\\Arsenaltech\Loyalty\Reward',
-            \Arsenaltech\Loyalty\CustomerPointsHistory::OBJECT_NAME => '\\Arsenaltech\Loyalty\CustomerPointsHistory'
+            \Arsenaltech\Loyalty\CustomerPointsHistory::OBJECT_NAME => '\\Arsenaltech\Loyalty\CustomerPointsHistory',
+            \Arsenaltech\Loyalty\SpendingRule::OBJECT_NAME => '\\Arsenaltech\Loyalty\SpendingRule'
+
         ];
         if (self::isList($resp)) {
             $mapped = [];

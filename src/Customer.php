@@ -31,4 +31,10 @@ class Customer extends ApiResource
         return parent::instanceUrl();
     }
 
+    public function earningRules() {
+        $url = $this->instanceUrl() . '/earnings';
+        $response = $this->_request('get', $url);
+        return Util\Util::convertToStripeObject($response);
+    }
+
 }
