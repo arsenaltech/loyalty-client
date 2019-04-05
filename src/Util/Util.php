@@ -72,6 +72,7 @@ abstract class Util
             \Arsenaltech\Loyalty\Tier::OBJECT_NAME => '\\Arsenaltech\Loyalty\Tier',
             \Arsenaltech\Loyalty\Reward::OBJECT_NAME => '\\Arsenaltech\Loyalty\Reward',
             \Arsenaltech\Loyalty\CustomerPointsHistory::OBJECT_NAME => '\\Arsenaltech\Loyalty\CustomerPointsHistory',
+            \Arsenaltech\Loyalty\EarningRule::OBJECT_NAME => '\\Arsenaltech\Loyalty\EarningRule',
             \Arsenaltech\Loyalty\SpendingRule::OBJECT_NAME => '\\Arsenaltech\Loyalty\SpendingRule'
 
         ];

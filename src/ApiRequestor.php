@@ -50,7 +50,7 @@ class ApiRequestor
             $args = ['query'=>$params];
         }
         else {
-            $args = ['body'=>$params];
+            $args = ['form_params'=>$params];
 
         }
         //$args['debug'] = true;

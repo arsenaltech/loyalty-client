@@ -13,8 +13,6 @@ class SpendingRule extends ApiResource
 {
     const OBJECT_NAME = "spending_rule";
     use ApiOperations\All;
-    use ApiOperations\Create;
-    use ApiOperations\Retrieve;
-    use ApiOperations\Update;
+
 
 }
