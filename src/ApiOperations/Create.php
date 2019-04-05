@@ -24,7 +24,7 @@ trait Create
         $url = static::classUrl();
 
         $response = static::_staticRequest('post', $url, $params, $options);
-        $obj = Util::convertToStripeObject($response->json);
+        $obj = Util::convertToStripeObject($response['data']);
         $obj->setLastResponse($response);
         return $obj;
     }

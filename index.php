@@ -17,6 +17,15 @@ $customer = Customer::retrieve(5);
 print_r($customer);
 //$history = $customer->history();
 //print_r($history);
+$order = Order::create([
+    'external_id'=>121,
+    'customer_id'=>$customer->external_id,
+    'rewardable_total'=>200,
+    'total'=>200,
+    'status'=>'paid',
+    'coupons'=>['aserwea','AHXELAJELA']
+]);
+print_r($order);
 //$ret = Order::retrieve(1);
 //$ret = Customer::retrieve(1);
 //print_r($ret);
