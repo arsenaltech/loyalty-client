@@ -36,7 +36,7 @@ class ApiRequestor
     public function __construct()
     {
         $this->_apiKey = Loyalty::$apiKey;
-        $this->_apiBase = Loyalty::$apiBase;
+        $this->_apiBase = Loyalty::apiUrl();
 
         $this->_httpClient = new Client(['base_uri'=>$this->_apiBase, 'headers'=>$this->getHeaders()]);
 

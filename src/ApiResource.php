@@ -20,7 +20,7 @@ class ApiResource extends LoyaltyObject
      */
     public static function baseUrl()
     {
-        return Loyalty::$apiBase;
+        return Loyalty::apiUrl();
     }
 
     /**

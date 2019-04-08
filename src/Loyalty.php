@@ -17,11 +17,13 @@ class Loyalty
     // @var string The client_id to be used for Connect requests.
     public static $clientId;
 
-    public static $socialUrl = 'http://loyalty.test/social/';
+    protected static $baseUrl = 'http://loyalty.test/';
+
+    protected static $socialUrlKey = 'social/';
 
 
     // @var string The base URL for the Stripe API.
-    public static $apiBase = 'http://loyalty.local/api/';
+    protected static $apiBase = 'api/';
 
     /**
      * @return string The API key used for requests.
@@ -41,8 +43,16 @@ class Loyalty
         self::$apiKey = $apiKey;
     }
 
-    public static function setApiBase($baseUrl)
+    public static function setBaseUrl($baseUrl)
     {
-        self::$apiBase = $baseUrl;
+        static::$baseUrl = $baseUrl;
+    }
+
+    public static function apiUrl() {
+        return static::$baseUrl.static::$apiBase;
+    }
+
+    public static function socialUrl() {
+        return static::$baseUrl.static::$socialUrlKey;
     }
 }

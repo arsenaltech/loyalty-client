@@ -16,7 +16,7 @@ class EarningRule extends ApiResource
 
     public function url($customer) {
         if($this->earning_class->class_name == 'App\\Events\\SocialSharing') {
-            return Loyalty::$socialUrl.'?rule_id='.$this->id.'&customer_key='.$customer->key;
+            return Loyalty::socialUrl().'?rule_id='.$this->id.'&customer_key='.$customer->key;
         }
         return '';
     }
