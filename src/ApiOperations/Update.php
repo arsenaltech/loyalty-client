@@ -1,6 +1,8 @@
 <?php
 
 namespace Arsenaltech\Loyalty\ApiOperations;
+use Arsenaltech\Loyalty\ApiResource;
+use Arsenaltech\Loyalty\Util\Util;
 
 /**
  * Trait for updatable resources. Adds an `update()` static method and a
@@ -22,10 +24,10 @@ trait Update
         self::_validateParams($params);
         $url = static::resourceUrl($id);
 
-        list($response, $opts) = static::_staticRequest('post', $url, $params, $opts);
-        //$obj = \Stripe\Util\Util::convertToStripeObject($response->json, $opts);
-        //$obj->setLastResponse($response);
-        //return $obj;
+        $response = static::_staticRequest('put', $url, $params, $opts);
+        $obj = Util::convertToStripeObject($response['data']);
+        $obj->setLastResponse($response);
+        return $obj;
     }
 
     /**
