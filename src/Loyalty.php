@@ -17,6 +17,9 @@ class Loyalty
     // @var string The client_id to be used for Connect requests.
     public static $clientId;
 
+    public static $socialUrl = 'http://loyalty.test/social/';
+
+
     // @var string The base URL for the Stripe API.
     public static $apiBase = 'http://loyalty.test/api/';
 
