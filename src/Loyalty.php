@@ -21,7 +21,7 @@ class Loyalty
 
 
     // @var string The base URL for the Stripe API.
-    public static $apiBase = 'http://loyalty.test/api/';
+    public static $apiBase = 'http://loyalty.local/api/';
 
     /**
      * @return string The API key used for requests.
@@ -39,5 +39,10 @@ class Loyalty
     public static function setApiKey($apiKey)
     {
         self::$apiKey = $apiKey;
+    }
+
+    public static function setApiBase($baseUrl)
+    {
+        self::$apiBase = $baseUrl;
     }
 }
