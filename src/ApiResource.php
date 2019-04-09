@@ -10,6 +10,7 @@ namespace Arsenaltech\Loyalty;
 
 
 use Arsenaltech\Loyalty\ApiOperations\Request;
+use Arsenaltech\Loyalty\Error\NotFound;
 
 class ApiResource extends LoyaltyObject
 {
@@ -48,6 +49,9 @@ class ApiResource extends LoyaltyObject
             $this->_retrieveOptions
         );
         $this->setLastResponse($response);
+        if($response['data'] == null) {
+            throw new NotFound('Resource not found');
+        }
         $this->refreshFrom($response['data'], $this->_opts);
         return $this;
     }
