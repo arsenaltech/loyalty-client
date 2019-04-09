@@ -43,4 +43,10 @@ class Customer extends ApiResource
         return Util\Util::convertToStripeObject($response);
     }
 
+    public function earn($rule) {
+        $url = $this->instanceUrl() . '/earn';
+        $response = $this->_request('post', $url, ['rule_id'=>$rule->id]);
+        return Util\Util::convertToStripeObject($response);
+    }
+
 }
