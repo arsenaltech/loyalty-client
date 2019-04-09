@@ -2,7 +2,11 @@
 
 namespace Arsenaltech\Loyalty;
 
+use Arsenaltech\Loyalty\Error\InvalidRequest;
+use Arsenaltech\Loyalty\Error\NotFound;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 
 /**
  * Class ApiRequestor
@@ -54,7 +58,15 @@ class ApiRequestor
 
         }
         //$args['debug'] = true;
-        $response = $this->_httpClient->request($method, $url, $args);
+        try {
+            $response = $this->_httpClient->request($method, $url, $args);
+        }
+        catch (ClientException $e){
+            throw new NotFound('Requested resource not found');
+        }
+        catch (ServerException $e){
+            throw new InvalidRequest('Something went wrong');
+        }
         return json_decode((string)$response->getBody(), true);
     }
 
