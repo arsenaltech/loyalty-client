@@ -16,4 +16,11 @@ class Order extends ApiResource
     use ApiOperations\Create;
     use ApiOperations\Retrieve;
     use ApiOperations\Update;
+
+    public static function shipped($external_id)
+    {
+        $url = self::baseUrl().'shipped';
+        $response = self::_staticRequest('post', $url, ['external_id'=>$external_id]);
+        return Util\Util::convertToStripeObject($response);
+    }
 }
