@@ -49,4 +49,12 @@ class Customer extends ApiResource
         return Util\Util::convertToStripeObject($response);
     }
 
+    public function manualAdjustment($reason, $points) {
+        $url = $this->instanceUrl() . '/earn';
+        $response = $this->_request('post', $url, ['reason'=>$reason, 'points'=>$points]);
+        return Util\Util::convertToStripeObject($response);
+    }
+
+
+
 }
