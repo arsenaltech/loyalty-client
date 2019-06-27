@@ -55,8 +55,8 @@ class Customer extends ApiResource
         return Util\Util::convertToStripeObject($response);
     }
 
-    public function expiringPoints($page=1) {
-        $url = $this->instanceUrl() . '/expiring-points';
+    public function transactions($page=1) {
+        $url = $this->instanceUrl() . '/transactions';
         $response = $this->_request('get', $url,  ['page'=>$page]);
         return Util\Util::convertToStripeObject($response);
     }
