@@ -20,7 +20,7 @@ class Customer extends ApiResource
     public function history($page=1) {
         $url = $this->instanceUrl() . '/history';
         $response = $this->_request('get', $url, ['page'=>$page]);
-        return Util\Util::convertToStripeObject($response['data']);
+        return Util\Util::convertToStripeObject($response);
     }
 
     public function instanceUrl()
@@ -52,6 +52,12 @@ class Customer extends ApiResource
     public function manualAdjustment($reason, $points) {
         $url = $this->instanceUrl() . '/earn';
         $response = $this->_request('post', $url, ['reason'=>$reason, 'points'=>$points]);
+        return Util\Util::convertToStripeObject($response);
+    }
+
+    public function expiringPoints($page=1) {
+        $url = $this->instanceUrl() . '/expiring-points';
+        $response = $this->_request('get', $url,  ['page'=>$page]);
         return Util\Util::convertToStripeObject($response);
     }
 
