@@ -23,4 +23,11 @@ class Order extends ApiResource
         $response = self::_staticRequest('post', $url, ['external_id'=>$external_id]);
         return Util\Util::convertToStripeObject($response);
     }
+
+    public static function cancel($external_id,$rewardable_total,$subtotal,$total)
+    {
+        $url = self::baseUrl().'refund';
+        $response = self::_staticRequest('post', $url, ['external_id'=>$external_id,'rewardable_total'=>$rewardable_total,'subtotal'=>$subtotal,'total'=>$total]);
+        return Util\Util::convertToStripeObject($response);
+    }
 }
