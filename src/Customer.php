@@ -49,6 +49,12 @@ class Customer extends ApiResource
         return Util\Util::convertToStripeObject($response);
     }
 
+    public function refer($rule,$referral_email) {
+        $url = $this->instanceUrl() . '/refer';
+        $response = $this->_request('post', $url, ['rule_id'=>$rule->id,'params'=>$referral_email]);
+        return Util\Util::convertToStripeObject($response);
+    }
+
     public function manualAdjustment($reason, $points) {
         $url = $this->instanceUrl() . '/earn';
         $response = $this->_request('post', $url, ['reason'=>$reason, 'points'=>$points]);
