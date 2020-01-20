@@ -17,4 +17,9 @@ class Reward extends ApiResource
     use ApiOperations\Retrieve;
     use ApiOperations\Update;
 
+    public function removeExpiredCode($reward_id) {
+        $url = self::baseUrl().'remove-expired-code';
+        $response = self::_staticRequest('post', $url, ['reward_id'=>$reward_id]);
+        return Util\Util::convertToStripeObject($response);
+    }
 }
