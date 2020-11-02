@@ -43,7 +43,7 @@ abstract class Util
         $results = [];
         foreach ($values as $k => $v) {
             // FIXME: this is an encapsulation violation
-            if ($k[0] == '_') {
+            if (isset($k[0]) && $k[0] == '_') {
                 continue;
             }
             if ($v instanceof LoyaltyObject) {
