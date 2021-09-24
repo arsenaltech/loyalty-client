@@ -67,6 +67,10 @@ class Customer extends ApiResource
         return Util\Util::convertToStripeObject($response);
     }
 
-
+    public function wishlist($rule,$params) {
+        $url = $this->instanceUrl() . '/wishlist';
+        $response = $this->_request('post', $url, ['rule_id'=>$rule->id,'params'=>$params]);
+        return Util\Util::convertToStripeObject($response);
+    }
 
 }
