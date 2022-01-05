@@ -30,4 +30,10 @@ class Order extends ApiResource
         $response = self::_staticRequest('post', $url, ['external_id'=>$external_id,'rewardable_total'=>$rewardable_total,'subtotal'=>$subtotal,'total'=>$total]);
         return Util\Util::convertToStripeObject($response);
     }
+
+    public static function orderGift($params, $customer_id, $rule_id ){
+        $url = self::baseUrl().'customers/'.$customer_id.'/order-gift';
+        $response = self::_staticRequest('post', $url, ['rule_id' => $rule_id, 'params' => $params]);
+        return Util\Util::convertToStripeObject($response);
+    }
 }
