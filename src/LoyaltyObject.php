@@ -245,6 +245,9 @@ class LoyaltyObject implements \ArrayAccess, \Countable, \JsonSerializable
         // Wipe old state before setting new.  This is useful for e.g. updating a
         // customer, where there is no persistent card parameter.  Mark those values
         // which don't persist as transient
+        if($this->_values==null){
+            $this->_values = [];
+        }
         if ($partial) {
             $removed = new Set();
         } else {
@@ -256,6 +259,9 @@ class LoyaltyObject implements \ArrayAccess, \Countable, \JsonSerializable
         }
 
         $this->updateAttributes($values, false);
+        if($this->_transientValues==null) {
+            $this->_transientValues = new Set();
+        }
         foreach ($values as $k => $v) {
             $this->_transientValues->discard($k);
             $this->_unsavedValues->discard($k);
@@ -282,6 +288,9 @@ class LoyaltyObject implements \ArrayAccess, \Countable, \JsonSerializable
             }
             if ($dirty) {
                 $this->dirtyValue($this->_values[$k]);
+            }
+            if($this->_unsavedValues==null){
+                $this->_unsavedValues = new Set();
             }
             $this->_unsavedValues->add($k);
         }
